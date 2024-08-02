@@ -20,8 +20,28 @@
 // console.dir(allEl);
 
 
-let Div = document.querySelector("div");
-console.dir(Div);
-console.dir(Div.innerText);
-console.dir(Div.innerHTML);
-console.dir(Div.textContent);
+// let Div = document.querySelector("div");
+// console.dir(Div);
+// console.dir(Div.innerText);
+// console.dir(Div.innerHTML);
+// console.dir(Div.textContent);
+
+let h2 = document.querySelector("h2");
+h2.innerText = h2.innerText + " from Apna College Students";
+console.dir(h2.innerText);
+
+
+let divs = document.querySelectorAll(".box");
+// console.dir(divs);
+// console.dir(divs[0]);
+// console.dir(divs[1]);
+// console.dir(divs[2]);
+// divs[0].innerText = "new unique value1"
+// divs[1].innerText = "new unique value2"
+// divs[2].innerText = "new unique value3"
+
+let idx = 1;
+for(div of divs){
+    div.innerText = `new unique value ${idx}`;
+    idx++;
+}
