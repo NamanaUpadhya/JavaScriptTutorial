@@ -47,9 +47,9 @@
 // console.log(newArr);
 
 
-const array1=[1,2,3,4];
+// const array1=[1,2,3,4];
 
-const output = array1.reduce((res,cur)=>{
-    return res+cur;
-})
-console.log(output);
+// const output = array1.reduce((res,cur)=>{
+//     return res+cur;
+// })
+// console.log(output);
