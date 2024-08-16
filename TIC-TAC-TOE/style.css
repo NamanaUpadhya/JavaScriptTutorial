@@ -68,3 +68,9 @@ body{
 .hide{
     display: none;
 }
+.xColor{
+    color: coral;
+}
+.oColor{
+    color: darkmagenta;
+}

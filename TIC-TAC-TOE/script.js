@@ -5,6 +5,7 @@ let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
 let turnO = true;//playerX , playerO
+let count = 0;
 
 const winPatterns = [
     [0,1,2],
@@ -19,6 +20,7 @@ const winPatterns = [
 
 const resetGame = ()=>{
     turnO = true;
+    count = 0;
     enableBoxes();
     msgContainer.classList.add("hide");
 };
@@ -28,16 +30,31 @@ boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
         if(turnO === true){
             box.innerText = "O";
+            box.classList.add("xColor");
             turnO = false;
         }
         else{
             box.innerText = "X";
+            box.classList.add("oColor");
             turnO = true;
         }
+        
         box.disabled = true;
-        checkWinner();
+        count++;
+
+        let isWinner = checkWinner();
+        if(count === 9 && !isWinner){
+            gameDraw();
+        }
     });
 });
+
+const gameDraw = () =>{
+        msg.innerText = "No Winner , Game is a Draw!!!";
+        msgContainer.classList.remove("hide");
+        disableBoxes();
+
+};
 
 const disableBoxes = () =>{
     for(let box of boxes){
@@ -60,6 +77,7 @@ const showWinner = (Winner) =>{
 
 
 const checkWinner = ()=>{
+    count++;
     for (let pattern of winPatterns){
         // console.log(pattern[0],pattern[1],pattern[2]);
         // console.log(
@@ -74,8 +92,10 @@ const checkWinner = ()=>{
             if(pos1Val === pos2Val && pos2Val=== pos3Val){
                 console.log("Winner!!",pos1Val);
                 showWinner(pos1Val);
+                return true;
             }
         }
+        
     }
 };
 
